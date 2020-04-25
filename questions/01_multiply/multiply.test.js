@@ -4,23 +4,25 @@ describe('multiply testing', () => {
   test('it should ensure it receives two numbers', () => {
     // test some values that should fail
 
-    expect(() => multiply(/*fill this in*/)).toThrow();
+    expect(() => multiply('hello',3)).toBe('input is not a number');
 
-    expect(() => multiply(/*fill this in*/)).toThrow();
+    expect(() => multiply(4,'2')).toBe('input is not a number');
   });
 
   test('it returns the product of two numbers', () => {
     // test the type of the returned value
-    expect(/*fill this in*/).toBe(/*fill this in*/);
+    expect(multiply(2,3)).toBe(6);
 
     // test that the returned value is correct
-    expect(/*fill this in*/).toBe(/*fill this in*/);
+    expect(multiply(9,9)).toBe(81);
 
     // test some other values
-    expect(/* fill this in */).toBe(/* fill this in */);
+    expect(multiply(15,15)).toBe(225);
   });
 
   test('it is not hardcoded (hint: use random numbers)', () => {
-    // test some random values
+    a = Math.random()
+    b = Math.random()
+    expect(multiply(a,b)).toBe(a*b);
   });
 });
