@@ -27,8 +27,10 @@ const validPalindrome = (input) => {
     }
   }
   l2 = newL.slice().reverse()
+  console.log('yo')
   return newL.join("") == l2.join("")
 
 };
+validPalindrome("not a palindrome")
 
 module.exports = { validPalindrome };
