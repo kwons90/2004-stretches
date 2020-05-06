@@ -1,30 +1,37 @@
 const lockBox = (num,msg) => {
-  if(typeof(num != 'number' || typeof(mg) != 'string')) {
+  if(typeof(num)!= 'number' || typeof(msg) != 'string') {
     throw new Error('not cool')
   }
-  let accessCode = code;
-  let secretMessage = message;
+  let accessCode = num;
+  let secretMessage = msg;
   
   return {
-    modMessage: (num, msg) => {
-      map[num] = msg;
+    modMessage: function(num, msg) {
+      accessCode = num;
+      secretMessage = msg;
       return msg;
     },
     modCode: (num1, num2) => {
       if(num1 != accessCode) {
         throw new Error('Access Denied!')
       } else {
-        secretMessage = newMessage;
-        return secretMessage;
+        accessCode = num2;
+        return accessCode;
       }
     },
     modMessage: (num, msg) => {
-      if(Object.keys(map).includes(num)) {
-        map[num] = msg;
+      if(num == accessCode) {
+        secretMessage = msg;
+        return secretMessage;
       }
-    },      
+    },
     revealMessage: (num) => {
-      return map[num]
+      if(num == accessCode) {
+        return secretMessage;
+      }
+      else{
+        throw new Error('wrong message')
+      }
     }
   }
 };
