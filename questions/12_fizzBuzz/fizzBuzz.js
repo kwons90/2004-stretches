@@ -8,13 +8,13 @@ const fizzBuzz = (num) => {
     if(i%3 ==0 && i%5 ==0) {
       returnArr.push('FizzBuzz')
     }
-    if(i%3 == 0 && i% 5 != 0) {
+    else if(i%3 == 0 && i% 5 != 0) {
       returnArr.push('Fizz')
     }
-    if(i%5 == 0 && i%3 != 0) {
+    else if(i%5 == 0 && i%3 != 0) {
       returnArr.push('Buzz')
     }
-    if(i%5 != 0 && i%3 != 0){
+    else {
       returnArr.push(i)
     }
     // console.log(returnArr)
@@ -22,5 +22,5 @@ const fizzBuzz = (num) => {
   return returnArr
 };
 
-// console.log(fizzBuzz(30))
+console.log(fizzBuzz(30))
 module.exports = { fizzBuzz };
