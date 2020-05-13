@@ -17,10 +17,11 @@ const movieposter = (arr) => {
       l = currV.length
   }})
   l = l+4
-  for(let i = 0; i<)
+  str = '*'.repeat(l) + '\n'
   for(let i = 0 ; i<arr.length; i++) {
-
+    str += '* '+arr[i] + ' '.repeat(l -arr[i].length) + ' * \n'
   }
+  str = '*'.repeat(l)
   return str
 };
 
