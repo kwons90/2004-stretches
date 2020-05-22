@@ -17,8 +17,8 @@ describe('getrootvalue functionality to be called with 2 paramaters obj and val.
         l2: [82, 34, 6, 19],
       },
     };
-    const val = 40;
-    expect(getrootvalue(obj, val)).toEqual('one');
+    const val = 34;
+    expect(getrootvalue(obj, val)).toEqual('three');
   });
   test('test 2: getrootvalue should return the correct root value', () => {
     const obj = {
