@@ -6,41 +6,12 @@ Paper defeats Rock
 Rock defeats Scissors 
 */
 rockStr = 'rock'
-scissorStr = 'scissor'
+scissorStr = 'scissors'
 paperStr = 'paper'
-
-const determineWinner = function() {
-  const values = Object.values(this.arguments).map(function(str) {return str.toLowerCase()})
-  let rockCount = 0
-  let scissorCount = 0
-  let paperCount = 0
-  const totalCount = values.length
-  values.forEach(currV => {
-    if(currV == rockStr) {
-      rockCount = rockCount +1
-    }
-    if(currV == scissorStr) {
-      scissorCount += 1
-    }
-    if(currV == paperStr) {
-      paperCount += 1
-    }
-  })
-  values.forEach((currV,index) => {
-    if(currV == rockStr && scissorCount == totalCount-1) {
-      return index
-    }
-    if(currV == scissorStr && paperCount == totalCount-1) {
-      return index
-    }
-    if(currV == paperStr && rockCount == totalCount-1) {
-      return index
-    }
-  })
-}
 
 
 class RPS {
+  // takes in players to initiate teh class -class is taken as a series of strings //
   constructor() {
     this.players = Object.values(arguments);
     this.scores = {}
@@ -49,10 +20,12 @@ class RPS {
     })
   }
   play() {
+    // takes in the moves of each player -each has the same index as the player in the first initiation
     const values = Object.values(arguments).map(function(str) {return str.toLowerCase()})
-    const rockCount = 0
-    const scissorCount = 0
-    const paperCount = 0
+    // console.log('values are '+values)
+    let rockCount = 0
+    let scissorCount = 0
+    let paperCount = 0
     const totalCount = values.length
     values.forEach(currV => {
       if(currV == rockStr) {
@@ -65,23 +38,39 @@ class RPS {
         paperCount += 1
       }
     })
+    // console.log(rockCount, scissorCount,paperCount, totalCount)
+    let msg;
     values.forEach((currV,index) => {
-      if(currV == rockStr && scissorCount == totalCount-1) {
+      // console.log(currV)
+      // console.log(scissorCount == totalCount-1)
+      // console.log(rockStr == currV)
+      // console.log(currV == rockStr && scissorCount == (totalCount-1))
+      if(currV == rockStr && scissorCount == (totalCount-1)) {
         this.scores[this.players[index]] +=1
-        return `Rock defeats Scissors ${this.players[index]} wins this round`
+        msg = `Rock defeats Scissors, ${this.players[index]} wins this round.`
+        // return `Rock defeats Scissors ${this.players[index]} wins this round`
       }
-      if(currV == scissorStr && paperCount == totalCount-1) {
+      else if(currV == scissorStr && paperCount == totalCount-1) {
         this.scores[this.players[index]] +=1
-        return `Scissors defeats Paper ${this.players[index]} wins this round`
+        msg = `Scissors defeats Paper, ${this.players[index]} wins this round.`
+        // return `Scissors defeats Paper ${this.players[index]} wins this round`
       }
-      if(currV == paperStr && rockCount == totalCount-1) {
+      else if(currV == paperStr && rockCount == totalCount-1) {
         this.scores[this.players[index]] +=1
-        return `Paper defeats Rock ${this.players[index]} wins this round`
+        msg = `Paper defeats Rock, ${this.players[index]} wins this round.`
+        // return `Paper defeats Rock ${this.players[index]} wins this round`
       }
     })
+    console.log(this.scores)
+    return msg
   }
   
-  //YOUR CODE HERE
+  winner() {
+    const scoresValues = Object.values(this.scores)
+    const max = Math.max(...scoresValues)
+    const index = scoresValues.indexOf(max);
+    return `The victor is ${this.players[index]} with ${this.scores[this.players[index]]} points.`
+  }
 }
 
 module.exports = { RPS };
