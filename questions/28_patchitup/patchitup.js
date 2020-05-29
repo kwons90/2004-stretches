@@ -7,3 +7,24 @@
 // - Also NB: repl.it doesn't let you monkey patch! but the chrome console does.
 
 //code goes here
+
+Array.prototype.countBy = function (func) {
+    let arr = this.slice()
+    console.log(typeof(func))
+    if(typeof(func) == 'function') {
+        console.log('triggered');
+        arr = arr.map(currV => {return func(currV)});
+        console.log(arr);
+    }
+    console.log(arr)
+    const obj = {}
+    arr.forEach(currV => {
+        if (Object.keys(obj).includes(currV.toString())) {
+            obj[currV.toString()] += 1
+        }
+        else {
+            obj[currV.toString()] = 1
+        }
+    })
+    return obj
+}
