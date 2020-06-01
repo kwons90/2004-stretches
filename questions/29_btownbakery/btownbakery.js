@@ -6,12 +6,8 @@ const btownbake = (recipe,supplies) => {
   }
   let nums = [];
   ingredients = Object.keys(recipe);
-  ingredients.forEach(ingredient => {
-    console.log(ingredient)
-    console.log('supplies ',supplies[ingredient], 'recipe ',recipe[ingredient])
-    let newNum = Math.floor((supplies[ingredient]) / (recipe[ingredient]))
-    console.log(newNum)
-    console.log(isNaN(newNum))
+  for(let i = 0 ; i<ingredients.length;i++) {
+    let newNum = Math.floor((supplies[ingredients[i]]) / (recipe[ingredients[i]]))
     if(isNaN(newNum)){
       console.log('returning 0')
       return 0
@@ -20,7 +16,7 @@ const btownbake = (recipe,supplies) => {
       nums.push(newNum)
     }
     console.log(nums)
-  })
+  }
   return Math.min(...nums)
 };
 
