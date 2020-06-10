@@ -12,8 +12,8 @@
 
 const directory = (obj) => {
   let result = {}
-  const values = Object.values(obj)
   const recurse = (cur, add) => {
+    const values = Object.values(cur)
 
   }
   for (let i = 0; i < values.length; i++) {

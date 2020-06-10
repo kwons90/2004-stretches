@@ -1,9 +1,13 @@
 const encrypt = (str) => {
-  returnArr = []
+  let returnArr = []
   strL = str.split('')
-  strL.forEach(currV => {
-    returnArr.push(currV.charCodeAt(0))
-  })
+  console.log(strL)
+  returnArr.push(strL[0].charCodeAt(0))
+  returnArr.push(strL.pop())
+  let slicedStrL = strL.slice(2)
+  returnArr = [...returnArr,...slicedStrL]
+  console.log('returnArr is ',returnArr)
+  returnArr.push(strL[1])
   return returnArr.join('')
 };
 
