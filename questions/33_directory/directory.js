@@ -10,8 +10,17 @@
 // };
 // directory(phonebookData)=>{ 'a/b/c': 12 }
 
-const directory = () => {
-  //code in here
+const directory = (obj) => {
+  let result = {}
+  const values = Object.values(obj)
+  const recurse = (cur, add) => {
+
+  }
+  for (let i = 0; i < values.length; i++) {
+    if (typeof (values[i]) != 'object') {
+
+    }
+  }
 };
 
 module.exports = { directory };
