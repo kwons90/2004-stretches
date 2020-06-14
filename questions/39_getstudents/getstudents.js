@@ -6,27 +6,33 @@ const axios = require('./axios');
 
 const getStudent = (name) => {
   if(typeof(name)!= 'string') {
-    throw new Error ('nope')
+    throw new Error(error)
   }
-  axios.get('https://fullstack.com/api/cohort2004')
-    .then(res => {
-      let response
-      let keys = Object.keys(res.data)
-      console.log('keys.length is ',keys.length)
-      for (let i = 1; i < keys.length; i++) {
-        console.log('i is ',i)
-        console.log('ahhhh')
-        console.log(res.data[i-1].name) 
-        if (res.data[i-1].name == name) {
-          console.log(res.data[i-1])
+  return axios.get('https://fullstack.com/api/cohort2004')
+  .then((res,rej) => {
+    let keys = Object.keys(res.data)
+    console.log('keys.length is ',keys.length)
+    let response = {
+      count: keys.length,
+      student: 'no student found',
+    }
+    for (let i = 1; i < keys.length; i++) {
+        if (res.data[i].name == name) {
+          console.log('if triggered')
+          console.log(res.data[i])
           response = {
             count: keys.length,
-            student: res.data[i-1]
+            student: res.data[i]
           }
+          return response
         }
       }
-      return response
+    return response
+    })
+    .catch((error)=> {
+     throw new Error('error')
     })
   };
+
 
   module.exports = { getStudent };
