@@ -5,7 +5,7 @@ const multiply = (num1, num2) => {
         return num1 * num2;
     }
     else {
-        return ('input is not a number')
+        return 'input is not a number'
     }
 };
 
