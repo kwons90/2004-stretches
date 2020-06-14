@@ -27,9 +27,9 @@ const romanInteger = (int) => {
     throw new Error('nope')
   }
   strArr = int.toString().split('')
-  console.log(strArr)
+  // console.log(strArr)
   length = strArr.length
-  console.log(length)
+  // console.log(length)
   const dict = [
     {
       0:'',
