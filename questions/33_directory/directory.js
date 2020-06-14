@@ -14,10 +14,10 @@ const directory = (obj) => {
   let result = {}
   const recurse = (cur, add) => {
     const values = Object.values(cur)
+    for (let i = 0; i < values.length; i++) {
+      if (typeof (values[i]) != 'object') {
 
   }
-  for (let i = 0; i < values.length; i++) {
-    if (typeof (values[i]) != 'object') {
 
     }
   }
