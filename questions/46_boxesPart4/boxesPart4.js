@@ -29,7 +29,20 @@ class Box {
   movingVan(dur) {
     return setTimeout(() => this.unpack(), dur);
   }
-  //*****YOUR CODE STARTS HERE******
+  expand(num, arr) {
+    this.capacity += num
+    arr.forEach(box => {
+      this.pack(box[0], box[1])
+    })
+  }
+  loot(num) {
+    if (this.contents[num]) {
+      return this.contents[num]
+    }
+    else {
+      return this.contents[Math.floor(Math.random)*this.contents.length]
+    }
+  }
 }
 
 module.exports = { Box };
