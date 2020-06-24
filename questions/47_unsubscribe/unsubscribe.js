@@ -14,7 +14,7 @@ class Messenger {
   }
   subscribe(type, fn) {
     this.getChannel(type).push(fn);
-    return function() {
+    return () => {
       console.log(this)
       this.listeners = this.listeners.filter(s => {return s[type] != type})
     }
