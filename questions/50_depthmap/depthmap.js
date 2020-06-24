@@ -7,19 +7,16 @@ const recordDepth = (masterObj) => {
   const returnObj = masterObj
   const recurse =function(obj){
     const objKeys = Object.keys(obj)
-    obj['depth'] = depth;
+    obj.depth = depth;
     depth++
     for (let i = 0; i < objKeys.length; i++) {
       if(typeof(obj[objKeys[i]]) == 'object') {
         recurse(obj[objKeys[i]])
       }
-      else {
-        return null
-      }
     }
-    recurse(returnObj)
+    return obj
   }
-  
+  return recurse(masterObj)
 };
 
 module.exports = { recordDepth };
