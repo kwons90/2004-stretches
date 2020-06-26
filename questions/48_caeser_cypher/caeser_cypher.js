@@ -17,7 +17,7 @@
 // result = "csps123"
 
 const encryptString = (str, shift) => {
-  console.log(str)
+  // console.log(str)
   alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
   numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   wordArr = str.split("")
@@ -36,12 +36,15 @@ const encryptString = (str, shift) => {
         const lower = alphabet.includes(e)
         const idx = alphabet.indexOf(e.toLowerCase())
         let idx_new = idx + shift % alphabet.length
-        if(idx_n)
-        console.log('on ',str, 'idx_new is ',idx_new)
+        console.log(idx_new)
+        if(idx_new < 0) {
+          idx_new = alphabet.length +idx_new
+        }
+        // console.log('on ',str, 'idx_new is ',idx_new)
         if(idx_new > wordArr.length) {
           idx_new = idx_new%alphabet.length
         }
-        console.log('on ',str, 'idx_new is after mutation',idx_new)
+        // console.log('on ',str, 'idx_new is after mutation',idx_new)
         // console.log('idx is ', idx, 'idx_new is ', idx_new)
         if (lower) {
           retArr.push(alphabet[idx_new])
@@ -52,7 +55,11 @@ const encryptString = (str, shift) => {
       }
       else {
         // console.log('num trig ', e)
-        retArr.push(numbers[(parseInt(e)+shift)%10])
+        let idx_new = (parseInt(e)+shift)%10
+        if(idx_new <0) {
+          idx_new = 10+idx_new
+        }
+        retArr.push(numbers[idx_new])
       }
     }
   })

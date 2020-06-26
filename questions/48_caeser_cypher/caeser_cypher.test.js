@@ -20,7 +20,7 @@ test('it should be able to wrap around forwards and backwards', () => {
   expect(encryptString('password123', -266)).toEqual('jummqilx567');
 });
 
-xtest('it should throw an error if there are non alphanumeric characters in the string', () => {
+test('it should throw an error if there are non alphanumeric characters in the string', () => {
   expect(() => {
     encryptString('p@ssword', 10);
   }).toThrow();
