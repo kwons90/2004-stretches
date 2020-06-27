@@ -19,19 +19,19 @@ const initialState = [
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_TODO:
-    return {
-      ...state,
-      "text": action.text,
-      "completed":false,
-      "id":0
-    };
-    case types.DELETE_TODO:
-      return {
-        ...state,
-        "text": action.text,
-        "completed":false,
-        "id":0
-      };
+    return [{
+      text: action.text,
+      completed:false,
+      id: state.length,
+      ...state
+    }];
+    // case types.DELETE_TODO: USE FILTEr
+    //   return {
+    //     ...state,
+    //     "text": action.text,
+    //     "completed":false,
+    //     "id":0
+    //   };
     default:
       return state;
   }
