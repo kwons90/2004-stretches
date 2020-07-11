@@ -22,9 +22,9 @@ const reducer = (state = initialState, action) => {
     return [{
       text: action.text,
       completed:false,
-      id: state.length,
+      id: state.length},
       ...state
-    }];
+    ];
     // case types.DELETE_TODO: USE FILTEr
     //   return {
     //     ...state,
